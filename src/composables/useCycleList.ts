@@ -1,3 +1,3 @@
-export const useCycleList = () => {
+export const useCycleList = (list: any[]) => {
   
 };
