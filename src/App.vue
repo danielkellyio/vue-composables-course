@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
+import { useCycleList } from './composables/useCycleList'
+const { state, prev, next, go } = useCycleList(['Dog', 'Cat', 'Bird', 'Iguana'])
+
+const goTo = ref(0)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    {{ state }}
+    <br />
+    <button @click="prev">Previous</button>
+    <button @click="next">Next</button>
+    <br />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <input type="number" v-model="goTo" />
+    <button @click="go(goTo)">Go To {{ goTo }}</button>
+  </div>
 </template>
 
 <style scoped>
