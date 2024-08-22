@@ -4,7 +4,7 @@ import { useCycleList } from './composables/useCycleList'
 const animals = ref(['Dog', 'Cat', 'Bird', 'Iguana'])
 const { state, prev, next, go } = useCycleList(animals)
 
-state.value = 'Hawk'
+// state.value = 'Hawk'
 
 // const { state, prev, next, go } = useCycleList(['Dog', 'Cat', 'Bird', 'Iguana'])
 // const { state, prev, next, go } = useCycleList(() => ['Dog', 'Cat', 'Bird', 'Iguana'])
