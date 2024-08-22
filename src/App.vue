@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useCycleList } from './composables/useCycleList'
-const { state, prev, next, go } = useCycleList(['Dog', 'Cat', 'Bird', 'Iguana'])
+const animals = ref(['Dog', 'Cat', 'Bird', 'Iguana'])
+const { state, prev, next, go } = useCycleList(animals)
+
+// const { state, prev, next, go } = useCycleList(['Dog', 'Cat', 'Bird', 'Iguana'])
+// const { state, prev, next, go } = useCycleList(() => ['Dog', 'Cat', 'Bird', 'Iguana'])
 
 const goTo = ref(0)
 </script>
