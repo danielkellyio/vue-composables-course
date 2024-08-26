@@ -16,7 +16,6 @@ export const useCycleList = (list: MaybeRefOrGetter<any[]>, config?: useCycleLis
     ...config
   }
 
-  console.log(_config)
   const activeIndex = ref(0)
   const _list = toRef(list)
   const state = computed({
@@ -25,12 +24,18 @@ export const useCycleList = (list: MaybeRefOrGetter<any[]>, config?: useCycleLis
     },
     set(value) {
       const foundIndex = _list.value.indexOf(value)
+
       if (foundIndex >= 0) {
         activeIndex.value = foundIndex
       } else {
-        throw Error(
-          `${value} is not found in the useCycleList list and cannot be set with state.value = ''`
-        )
+        const foundFallbackValueIndex = _list.value.indexOf(_config.fallbackValue)
+        if (foundFallbackValueIndex === -1) {
+          throw Error(
+            `${value} is not found in the useCycleList list and cannot be set with state.value = ''`
+          )
+        } else {
+          activeIndex.value = foundFallbackValueIndex
+        }
       }
     }
   })
@@ -53,9 +58,13 @@ export const useCycleList = (list: MaybeRefOrGetter<any[]>, config?: useCycleLis
 
   function go(index: number) {
     if (index >= _list.value.length) {
-      throw new Error(
-        `Cannot go to index ${index}. The list provided to useCycleList is not that long.`
-      )
+      if (typeof _config.fallbackIndex !== 'undefined') {
+        activeIndex.value = _config.fallbackIndex
+      } else {
+        throw new Error(
+          `Cannot go to index ${index}. The list provided to useCycleList is not that long.`
+        )
+      }
     } else {
       activeIndex.value = index
     }
