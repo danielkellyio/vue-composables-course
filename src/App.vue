@@ -6,8 +6,6 @@ const { state, prev, next, go } = useCycleList(animals, {
   fallbackValue: 'Cat'
 })
 
-state.value = 'Hawk'
-
 // const { state, prev, next, go } = useCycleList(['Dog', 'Cat', 'Bird', 'Iguana'])
 // const { state, prev, next, go } = useCycleList(() => ['Dog', 'Cat', 'Bird', 'Iguana'])
 
