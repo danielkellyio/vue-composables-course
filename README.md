@@ -1,6 +1,18 @@
-# composables-course
+# Vue Composables Course
 
-This template should help get you started developing with Vue 3 in Vite.
+This repo provides the source code for the course [Vue Composables](https://vueschool.io/courses/vue-composables).
+
+![Course image](https://vueschool.io/storage/media/8ced0a9a39f1b67ddb337980b5a1a5a4/vueschool-vue-composables-course.jpeg)
+
+Composables are the BEST way of creating re-usable stateful logic within a Vue application. In this course, code along with me as we create a useCycleList composable together. Along the way, you’ll learn:
+
+- The essential syntaxes of how to create a composable
+- How to define reactive state outside of a component
+- Some simple design patterns for making your composables easier to use
+- How to provide the best DX with type-safe composable interfaces
+- plus more!
+
+---
 
 ## Recommended IDE Setup
 
